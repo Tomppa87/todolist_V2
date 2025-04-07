@@ -1,5 +1,14 @@
+const { differenceInDays } = require("date-fns");
+const date = new Date();
+const DueDateComparison = {
+    late:0,
+    mid:30,
+}
+let testDate = new Date(2025, 4,25);
+console.log(differenceInDays(date,testDate))
 // set up empty array to hold tasks
 let taskArray = [];
+
 // class constructor for task creator with edit methods
 class Task {
     constructor(title, description, dueDate, priority, 
@@ -11,6 +20,7 @@ class Task {
         this.listName = listName;
         this.completed = false
         this.id = id
+
     }
     completeTask() {
         this.completed = true;
@@ -70,6 +80,7 @@ function completeTask(id) {
 function uncompleteTask(id) {
     taskArray[findId(id)].uncompleteTask();
 };
+
 // testing phase test object. Delete later
 addNewTask("testname","test description", "2025-03-25", "High", "My Tasks")
 
